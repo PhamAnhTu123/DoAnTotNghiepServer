@@ -11,4 +11,9 @@ export default class UserService extends Service {
     const user = await this.model.findById(userId);
     return user;
   }
+
+  async updateMe(userId, payload) {
+    const user = await this.model.findByIdAndUpdate(userId, payload);
+    return user;
+  }
 }

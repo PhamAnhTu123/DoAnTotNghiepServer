@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 import Boom from '@hapi/boom';
 import Service from '../../core/Service';
 import Bussiness from '../../../database/models/Bussiness';
@@ -31,6 +32,19 @@ export default class BussinessService extends Service {
       query.filter = {
         ...query.filter,
         status: query.q,
+      };
+    }
+    if (query.search) {
+      query.filter = {
+        ...query.filter,
+        $or: [
+          {
+            bussinessName: { $regex: query.search, $options: 'i' },
+          },
+          {
+            tags: { $in: [query.search] },
+          },
+        ],
       };
     }
     if (query.category) {

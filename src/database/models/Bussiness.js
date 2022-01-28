@@ -36,6 +36,14 @@ const BussinessSchema = new mongoose.Schema(
     rating: {
       type: [Number],
     },
+    rateTimes: {
+      type: Number,
+      default: 0,
+    },
+    totalScore: {
+      type: Number,
+      default: 0,
+    },
     images: {
       type: [String],
     },

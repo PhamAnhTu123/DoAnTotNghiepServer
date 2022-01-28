@@ -11,6 +11,7 @@ import BussinessRoutes from './modules/bussinesses/routes';
 import ServiceRoutes from './modules/services/routes';
 import ReviewRoutes from './modules/reviews/routes';
 import NewsRoutes from './modules/news/routes';
+import CollectionRoutes from './modules/collections/routes';
 
 export const bind = (server) => {
   const routes = [
@@ -25,6 +26,7 @@ export const bind = (server) => {
     new ServiceRoutes(server),
     new ReviewRoutes(server),
     new NewsRoutes(server),
+    new CollectionRoutes(server),
   ];
   return _flattenDeep(routes);
 };

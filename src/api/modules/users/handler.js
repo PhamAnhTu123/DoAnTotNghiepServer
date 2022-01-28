@@ -61,6 +61,20 @@ class UserHandler {
       payload: this.validator.payloadUpdateOne,
     },
   });
+
+  updateMe = () => ({
+    tags: ['api', 'v1'],
+    description: 'update current user',
+    notes: 'update current user',
+    handler: this.controller.updateMe,
+    auth: {
+      strategy: 'jwt',
+      scope: ROLE.USER,
+    },
+    validate: {
+      payload: this.validator.payloadUpdateOne,
+    },
+  });
 }
 
 export default UserHandler;

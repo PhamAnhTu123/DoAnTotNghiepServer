@@ -15,4 +15,14 @@ export default class UserController extends Controller {
     } = request;
     return this.service.getMe(userId);
   }
+
+  updateMe(request) {
+    const {
+      auth: {
+        credentials: { id: userId },
+      },
+      payload,
+    } = request;
+    return this.service.updateMe(userId, payload);
+  }
 }

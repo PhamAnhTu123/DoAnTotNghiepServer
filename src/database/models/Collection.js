@@ -13,9 +13,14 @@ const CollectionSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: 'owners',
     },
-    bussinesses: {
-      type: [String],
-    },
+    bussinesses: [
+      {
+        bussiness: {
+          type: mongoose.Types.ObjectId,
+          ref: 'bussinesses',
+        },
+      },
+    ],
   },
   {
     toJSON: {

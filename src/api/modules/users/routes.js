@@ -20,6 +20,11 @@ export default class UserRoutes {
         options: this.handler.getMe,
       },
       {
+        method: 'PUT',
+        path: '/api/v1/users/me',
+        options: this.handler.updateMe,
+      },
+      {
         method: 'GET',
         path: '/api/v1/users/{id}',
         options: this.handler.getOne,

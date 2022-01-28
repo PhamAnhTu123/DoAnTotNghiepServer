@@ -26,8 +26,11 @@ export default class BussinessValidator extends Validator {
     offset: Joi.number().integer().default(0),
     orderBy: Joi.string().default('-id'),
     fields: Joi.array(),
+    page: Joi.number().integer().default(0),
     filter: Joi.string(),
+    search: Joi.string().trim(),
     q: Joi.string().trim(),
     category: Joi.string().trim(),
+    sort: Joi.string(),
   });
 }

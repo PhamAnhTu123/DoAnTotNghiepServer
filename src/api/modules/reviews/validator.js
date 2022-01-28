@@ -7,6 +7,6 @@ export default class ServiceValidator extends Validator {
     title: Joi.string().required(),
     content: Joi.string().required(),
     point: Joi.number().min(1).max(5).required(),
-    image: Joi.string().required(),
+    image: Joi.string(),
   });
 }

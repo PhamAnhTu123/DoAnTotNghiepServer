@@ -9,8 +9,10 @@ export default class UserValidator extends Validator {
   });
 
   payloadUpdateOne = Joi.object({
+    userName: Joi.string(),
     fullname: Joi.string(),
-    email: Joi.string().email(),
+    email: Joi.string(),
+    avatar: Joi.string(),
     password: Joi.string().min(8).max(25),
   });
 }

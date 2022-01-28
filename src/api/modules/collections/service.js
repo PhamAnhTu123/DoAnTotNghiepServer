@@ -3,13 +3,13 @@ import Service from '../../core/Service';
 import Collection from '../../../database/models/Collection';
 import errors from '../../../constants/errors';
 
-export default class NewsService extends Service {
+export default class CollectionService extends Service {
   constructor() {
     super();
     this.model = Collection;
   }
 
-  async createNews(payload, userId) {
+  async createCollection(payload, userId) {
     const collection = await this.model.create({
       ...payload,
       user: userId,
@@ -17,12 +17,24 @@ export default class NewsService extends Service {
     return collection;
   }
 
-  async getNewsOfBussiness(id, query) {
-    query.filter = {
-      ...query.filter,
-      bussiness: id,
-    };
-    const news = await this.model.queryBuilder(query);
-    return news;
+  async addBussiness(id, bussiness) {
+    const collection = await this.model.findByIdAndUpdate(id, {
+      $push: { bussinesses: { bussiness } },
+    });
+    return collection;
+  }
+
+  async getCollectionOfUser(userId) {
+    const collections = await this.model
+      .find({
+        user: userId,
+      })
+      .populate(['bussinesses.bussiness']);
+    return collections;
+  }
+
+  async getOneCollection(id) {
+    const collection = await this.model.findById(id).populate(['bussinesses.bussiness']);
+    return collection;
   }
 }
