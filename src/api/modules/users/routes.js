@@ -34,6 +34,11 @@ export default class UserRoutes {
         path: '/api/v1/users/{id}',
         options: this.handler.updateOne,
       },
+      {
+        method: 'DELETE',
+        path: '/api/v1/users/{id}',
+        options: this.handler.deleteOne,
+      },
     ];
     return routes;
   }

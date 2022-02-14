@@ -62,6 +62,20 @@ class UserHandler {
     },
   });
 
+  deleteOne = () => ({
+    tags: ['api', 'v1'],
+    description: 'delete one user',
+    notes: 'delete one user',
+    handler: this.controller.deleteOne,
+    auth: {
+      strategy: 'jwt',
+      scope: [ROLE.USER, ROLE.ADMIN],
+    },
+    validate: {
+      params: this.validator.idParam,
+    },
+  });
+
   updateMe = () => ({
     tags: ['api', 'v1'],
     description: 'update current user',

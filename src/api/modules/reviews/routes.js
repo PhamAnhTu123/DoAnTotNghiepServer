@@ -15,6 +15,11 @@ export default class ReviewRoutes {
         options: this.handler.addOne,
       },
       {
+        method: 'GET',
+        path: '/api/v1/reviews',
+        options: this.handler.getMany,
+      },
+      {
         method: 'Get',
         path: '/api/v1/bussinesses/{id}/reviews',
         options: this.handler.getReviewOfBussiness,

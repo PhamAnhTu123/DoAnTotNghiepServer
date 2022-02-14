@@ -23,6 +23,17 @@ class ReviewHandler {
     },
   });
 
+  getMany = () => ({
+    tags: ['api', 'v1'],
+    description: 'Get all reviews',
+    notes: 'Get all reviews',
+    handler: this.controller.getMany,
+    auth: false,
+    validate: {
+      query: this.validator.queryParams,
+    },
+  });
+
   getReviewOfBussiness = () => ({
     tags: ['api', 'v1'],
     description: 'Get all reviews of bussiness',
